@@ -18,7 +18,7 @@ resource "aws_elastic_beanstalk_environment" "EB_env" {
   setting {
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    value     = [var.subnet_public]
+    value     = var.subnet_public
   }
 
   setting {
