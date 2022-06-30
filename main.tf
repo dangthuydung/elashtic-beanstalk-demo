@@ -15,8 +15,8 @@ module "module_network" {
 
 module "module_EB" {
   source              = "./beanstalk"
-  name_EB_app         = "EB-python-flask"
-  name_EB_env         = "EB-python-flask-env"
+  name_EB_app         = "EB-python-flask-123"
+  name_EB_env         = "EB-python-flask-env-123"
   solution_stack_name = "64bit Amazon Linux 2 v3.3.15 running Python 3.8"
   tier                = "WebServer"
   vpc_id              = module.module_network.vpc_id
