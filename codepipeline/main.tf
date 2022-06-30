@@ -76,16 +76,13 @@ resource "aws_codepipeline" "codepipeline" {
       name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
-      provider        = "CodeDeploy"
+      provider        = "ElasticBeanstalk"
       input_artifacts = ["code"]
       version         = "1"
 
       configuration = {
         ApplicationName = var.application_name
-        # OutputFileName  = var.output_file_name
-        # StackName      = var.stack_name
-        # TemplategPath   = var.templatepath
-        DeploymentGroupName = var.deployment_group_name
+        EnvironmentName = var.deployment_group_name
       }
     }
   }
