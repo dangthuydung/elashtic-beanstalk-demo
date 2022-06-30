@@ -25,6 +25,10 @@ resource "aws_codedeploy_app" "app" {
 
 resource "aws_codedeploy_deployment_config" "deployment_config" {
   deployment_config_name = "test-deployment-config"
+  minimum_healthy_hosts {
+    type  = "HOST_COUNT"
+    value = 2
+  }
 }
 
 resource "aws_codedeploy_deployment_group" "deployment_group" {

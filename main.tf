@@ -7,11 +7,11 @@ module "module_network" {
   vpc_name = "demo_vpc"
 }
 
-module "module_server" {
-  source         = "./server"
-  public_subnet  = module.module_network.public_subnet
-  security_group = [module.module_network.security_group]
-}
+# module "module_server" {
+#   source         = "./server"
+#   public_subnet  = module.module_network.public_subnet
+#   security_group = [module.module_network.security_group]
+# }
 
 module "module_EB" {
   source              = "./beanstalk"
@@ -24,14 +24,14 @@ module "module_EB" {
   key_name            = "app-key-1"
 }
 
-module "module_codedeploy" {
-  source                = "./codedeploy"
-  compute_platform      = "Server"
-  name                  = "codedeploy-app-python"
-  deployment_group_name = "deployment-group-name-python"
-  key_ec2               = "Name"
-  value_ec2             = "web_instance"
-}
+# module "module_codedeploy" {
+#   source                = "./codedeploy"
+#   compute_platform      = "Server"
+#   name                  = "codedeploy-app-python"
+#   deployment_group_name = "deployment-group-name-python"
+#   key_ec2               = "Name"
+#   value_ec2             = "web_instance"
+# }
 
 # module "module_codepipeline" {
 #   source = "./codepipeline"
@@ -47,10 +47,10 @@ module "module_codedeploy" {
 #   repo_owner            = "dangthuydung"
 # }
 
-module "module_s3" {
-    source = "./s3"
-    aws_vpc_endpoint = module.module_network.vpc_id
-}
+# module "module_s3" {
+#     source = "./s3"
+#     aws_vpc_endpoint = module.module_network.vpc_id
+# }
 
 # terraform {
 #   backend "s3" {
