@@ -48,8 +48,6 @@ jobs:
     #     cd terraform-code
     #     terraform apply --auto-approve
 
-
-
     # - name: AWS CodeDeploy
     #   uses: sourcetoad/aws-codedeploy-action@v1
     #   with:
